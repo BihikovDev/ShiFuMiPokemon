@@ -1,5 +1,5 @@
 :root {
-    --primary: #8F7B86;
+    --primary: #868f69;
     --secondary: #abaf9d;
     --action: #ff6565;
     --border-radius: 10px;
@@ -174,4 +174,4 @@ header {
     background-color: var(--secondary);
 }
 
-/* IMAGE PLEIN ECRAN */
+/* media queries */
