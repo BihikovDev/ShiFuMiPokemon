@@ -25,6 +25,10 @@ body {
     background-attachment: fixed;
     font-family: sans-serif;
     padding: 15px;
+    font-family: 'Prompt', sans-serif;
+}
+.soundText {
+    font-size: 11px;
 }
 audio {
     width: 220px;
