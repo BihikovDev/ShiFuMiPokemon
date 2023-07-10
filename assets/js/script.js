@@ -91,14 +91,14 @@ const verifierGagnant = (choixJoueur, choixOrdi) => {
 };
 // En cas de victoire de l'ordinateur, le message.textContent est affiché sous le bouton
 const victoireOrdinateur = () => {
-    message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#ff6565; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span> <img src=\"../assets/img/loose.gif\" width=\"600px\" height=\"300px\"></div>"
+    message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#ff6565; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span> <img src=\"../assets/img/loose.gif\" width=\"100%\" height=\"300px\"></div>"
     scoreOrdinateur.textContent++;
     victoiresOrdinateur++;
     calculerPourcentageVictoire();
 };
 // En cas de victoire de l'utilisateur, le message.textContent est affiché sous le bouton
 const victoireJoueur = () => {
-    message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#90EE90; font-size:30px' class='mb-3'>Vous avez gagné. Votre adversaire est hors jeu.</span> <img src=\"https://media.tenor.com/7Nj-xYFfoi8AAAAd/pokemon-pocket-monsters.gif\" width=\"600px\" height=\"300px\"></div>"
+    message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#90EE90; font-size:30px' class='mb-3'>Vous avez gagné. Votre adversaire est hors jeu.</span> <img src=\"https://media.tenor.com/7Nj-xYFfoi8AAAAd/pokemon-pocket-monsters.gif\" width=\"100%\" height=\"300px\"></div>"
     scoreJoueur.textContent++;
     victoiresUtilisateur++;
     calculerPourcentageVictoire();
