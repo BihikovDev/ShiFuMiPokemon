@@ -11,7 +11,6 @@ let nextBtn = document.querySelector("#next");
 let winrate = document.querySelector("#pourcentage-victoire");
 let usersWin = 0;
 let computersWin = 0;
-let gameWin = 0;
 let elementAudio = document.querySelector('#pokemonSound');
 
 // FONCTIONS
@@ -113,7 +112,6 @@ const victoireJoueur = () => {
   message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#90EE90; font-size:30px' class='mb-3'>Vous avez gagné. Votre adversaire est hors jeu.</span> <img src=\"https://media.tenor.com/7Nj-xYFfoi8AAAAd/pokemon-pocket-monsters.gif\" width=\"100%\" height=\"300px\"></div>";
   scorePlayer.textContent++;
   usersWin++;
-  gameWin++;
   if (usersWin === 5) {
     displayFullscreen();
   }
