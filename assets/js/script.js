@@ -91,7 +91,7 @@ const verifierGagnant = (choixJoueur, choixOrdi) => {
 };
 // En cas de victoire de l'ordinateur, le message.textContent est affiché sous le bouton
 const victoireOrdinateur = () => {
-    message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#ff6565; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span> <img src=\"../assets/img/loose.gif\" width=\"100%\" height=\"300px\"></div>"
+    message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#ff6565; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span> <img src=\"https://s12.gifyu.com/images/SWwGw.gif\" width=\"100%\" height=\"300px\"></div>"
     scoreOrdinateur.textContent++;
     victoiresOrdinateur++;
     calculerPourcentageVictoire();
