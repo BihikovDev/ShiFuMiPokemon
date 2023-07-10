@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projet Shifumi</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+        />
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="shortcut icon" href="./assets/img/pokeball.png" type="image/png">
+        <script defer src="assets/js/script.js"></script>
+    </head>
+    <!-- DEBUT DU BODY -->
+    <body>
+        <audio id="pokemonSound" src="./assets/sound/fightSound.mp3" class="mt-3" controls autoplay>
+            <p>Votre navigateur ne supporte pas ce type de fichier.</p>
+            </audio>
+        <header>
+            <img src="./assets/img/pokemonlogo.gif" alt="pokemon logo" class="logoPokemon mb-3"/>
+            <br>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#rulesModal">
+                Règles du jeu
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="rulesModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="rulesModalLabel">Règles du jeu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p >Tu as le choix entre trois pokémons de types différents.</p>
+                    <ol>
+                        <li>Le Pokémon Plante <i class="fas fa-leaf" style="color: #298934;"></i> bat le Pokémon Eau <i class="fas fa-tint" style="color: #4690c8;"></i> , mais perd contre le Pokémon feu <i class="fas fa-fire" style="color: #aa1313;"></i>.</li>
+                        
+                        <li>Le Pokémon Eau <i class="fas fa-tint" style="color: #4690c8;"></i> bat le Pokémon Feu <i class="fas fa-fire" style="color: #aa1313;"></i>, mais perd contre le Pokémon Plante <i class="fas fa-leaf" style="color: #298934;"></i></li>
+                        
+                        <li>Le Pokémon Feu bat le Pokémon Plante <i class="fas fa-leaf" style="color: #298934;"></i>, mais perd contre le Pokémon Eau <i class="fas fa-tint" style="color: #4690c8;"></i></li>
+                    </ol>
+                    <p class="mt-5">Ce jeu n'a aucune fin, tu arrêtes de jouer quand tu le souhaites.</p>
+                    <p><i class="fas fa-exclamation-triangle" style="color: #aa3131;"></i> Attention, ton adversaire est coriace !</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">J'ai compris !</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <h4 class="mt-3">Dresseur, fais ton choix !</h4>
+        </header>
+        <div class="action">
+            <div id="next" class="text-center">Tour suivant</div>
+            <p id="message" class="">Attrapez les tous !</p> 
+        </div>
+        <div class="jeu">
+            <div class="choix">
+                <h2 class="userChoice mb-5">VOTRE CHOIX</h2>
+                <div class="button btn-joueur mb-5" id="bulbizarre">
+                    <p>Bulbizarre <i class="fas fa-leaf" style="color: #298934;"></i></p>
+                    <img src="./assets/img/bulbasaur.gif" alt="bulbizarre" />
+                </div>
+                <div class="button btn-joueur" id="carapuce">
+                    <p>Carapuce <i class="fas fa-tint" style="color: #4690c8;"></i></p>
+                    <img src="./assets/img/squirtle.gif" alt="carapuce" />
+                </div>
+                <div class="button btn-joueur" id="salameche">
+                    <p>Salamèche <i class="fas fa-fire" style="color: #aa1313;"></i></p>
+                    <img src="./assets/img/charmander.gif" alt="salameche" />
+                </div>
+            </div>
+            <div class="choix">
+                <h2 class="computerChoice mb-5">CHOIX DE L'ADVERSAIRE</h2>
+                <div class="button btn-ordi" id="obulbizarre">
+                    <p>Bulbizarre <i class="fas fa-leaf" style="color: #298934;"></i></p>
+                    <img src="./assets/img/bulbasaur.gif" alt="bulbizarre"/>
+                </div>
+                <div class="button btn-ordi" id="ocarapuce">
+                    <p>Carapuce <i class="fas fa-tint" style="color: #4690c8;"></i></p>
+                    <img src="./assets/img/squirtle.gif" alt="carapuce" />
+                </div>
+                <div class="button btn-ordi" id="osalameche">
+                    <p>Salamèche <i class="fas fa-fire" style="color: #aa1313;"></i></p>
+                    <img src="./assets/img/charmander.gif" alt="salameche" />
+                </div>
+            </div>
+        </div>
+        <div class="score">
+            <div class="divScore">
+                <div class="scoreUser">
+                    <p>Votre score</p>
+                    <p id="score-joueur">0</p>
+                </div>
+                <div class="scoreO">
+                    <p>Adversaire</p>
+                    <p id="score-ordinateur">0</p> 
+                </div>
+            </div>
+            <p class="mt-3">Pourcentage de victoire : <span id="pourcentage-victoire">0%</span></p>
+            <div id="reset">Combattre à nouveau</div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
