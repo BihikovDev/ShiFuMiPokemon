@@ -104,6 +104,7 @@ const victoireOrdinateur = () => {
   // Affiche de l'image LooserGif après 5 manches remportées par l'ordinateur
   if (computersWin === 5) {
     displayLooserGif();
+  // Réinitialisation des scores et winrate
     reset();
     winrate.textContent = "0%";
     usersWin = 0;
@@ -121,6 +122,7 @@ const victoireJoueur = () => {
   // Affichage de l'image fullscreen après 5 manches remportées
   if (usersWin === 5) {
     displayFullscreen();
+  // Réinitialisation des scores et winrate
     reset();
     winrate.textContent = "0%";
     usersWin = 0;
@@ -195,5 +197,3 @@ const displayLooserGif = () => {
       fullscreenLoose.style.display = "none";
   }, 5000);
 };
-
-// Réinitialise le jeu après image 
