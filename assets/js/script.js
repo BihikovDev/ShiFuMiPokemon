@@ -19,12 +19,12 @@ let elementAudio = document.querySelector('#pokemonSound');
 elementAudio.volume = 0.02;
 
 // Variable pour lancer la manche et désactiver le bouton ensuite
-const jouerManche = (e) => {
+const playGame = (e) => {
   let choix = e.target.closest(".btn-joueur");
 
   btnPlayer.forEach((btn) => {
     btn.classList.add("desactivated");
-    btn.removeEventListener("click", jouerManche);
+    btn.removeEventListener("click", playGame);
   });
 
   choix.classList.remove("desactivated");
@@ -101,9 +101,15 @@ const victoireOrdinateur = () => {
   message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#ff6565; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span> <img src=\"https://s12.gifyu.com/images/SWwGw.gif\" width=\"100%\" height=\"300px\"></div>";
   scoreComputer.textContent++;
   computersWin++;
-  if (computersWin=== 5) {
+  // Affiche de l'image LooserGif après 5 manches remportées par l'ordinateur
+  if (computersWin === 5) {
     displayLooserGif();
+    reset();
+    winrate.textContent = "0%";
+    usersWin = 0;
+    computersWin = 0;
   }
+  
   calculateWinrate();
 };
 
@@ -112,18 +118,24 @@ const victoireJoueur = () => {
   message.innerHTML = "<div class='winOrLooseMsg'><span style='color:#90EE90; font-size:30px' class='mb-3'>Vous avez gagné. Votre adversaire est hors jeu.</span> <img src=\"https://media.tenor.com/7Nj-xYFfoi8AAAAd/pokemon-pocket-monsters.gif\" width=\"100%\" height=\"300px\"></div>";
   scorePlayer.textContent++;
   usersWin++;
+  // Affichage de l'image fullscreen après 5 manches remportées
   if (usersWin === 5) {
     displayFullscreen();
+    reset();
+    winrate.textContent = "0%";
+    usersWin = 0;
+    computersWin = 0;
   }
+  
   calculateWinrate();
 };
 
 // Fonction pour pouvoir relancer une manche
-const preparerNouvelleManche = () => {
+const newGame = () => {
   btnPlayer.forEach((btn) => {
     btn.classList.remove("desactivated");
     btn.classList.remove("active");
-    btn.addEventListener("click", jouerManche);
+    btn.addEventListener("click", playGame);
   });
 
   // Cache le bouton lorsque le choix est effectué et validé
@@ -137,29 +149,19 @@ const preparerNouvelleManche = () => {
 };
 
 // Ajout d'un événement permettant de réinitialiser les stats et recommencer une partie
-resetBtn.addEventListener("click", () => {
+const reset = () => {
   scorePlayer.textContent = 0;
   scoreComputer.textContent = 0;
+  totalVictoires = 0
   winrate.textContent = "0%";
 
-  preparerNouvelleManche();
-});
+  newGame();
+}
+reset()
 
-nextBtn.addEventListener("click", preparerNouvelleManche);
-
-btnPlayer.forEach((btn) => btn.addEventListener("click", jouerManche));
-
-// AFFICHAGE IMAGE PLEIN ECRAN
-const displayFullscreen = () => {
-  const fullscreenElement = document.querySelector("#fullscreen");
-  fullscreenElement.classList.add("fullscreen-gif");
-  fullscreenElement.style.backgroundImage = "url(https://64.media.tumblr.com/f566549a6cc6295b682fa26ce1606f8f/ddb594a3ece418dc-e1/s540x810/4898348b15ce6adc550b7de45bb2b3b3e1d47b75.gif)";
-};
-const displayLooserGif = () => {
-    const fullscreenLoose = document.querySelector("#fullscreen");
-    fullscreenLoose.classList.add("fullscreen-gif");
-    fullscreenLoose.style.backgroundImage = "url(https://media.tenor.com/7C6H6TQk-D8AAAAC/pokemon-ash.gif)";
-};
+resetBtn.addEventListener("click", reset)
+nextBtn.addEventListener("click", newGame);
+btnPlayer.forEach((btn) => btn.addEventListener("click", playGame));
 
 // Fonction pour calculer le pourcentage de victoire de l'utilisateur
 const calculateWinrate = () => {
@@ -172,3 +174,26 @@ const calculateWinrate = () => {
   }
 };
 calculateWinrate()
+
+// Fonction pour afficher l'image en plein écran, selon le résultat
+const displayFullscreen = () => {
+  const fullscreenElement = document.querySelector("#fullscreen");
+  fullscreenElement.classList.add("fullscreen-gif");
+  fullscreenElement.style.backgroundImage = "url(https://64.media.tumblr.com/f566549a6cc6295b682fa26ce1606f8f/ddb594a3ece418dc-e1/s540x810/4898348b15ce6adc550b7de45bb2b3b3e1d47b75.gif)";
+  // image disparaît après 5 secondes
+  setTimeout(function() {
+    fullscreenElement.style.display = "none";
+}, 5000);
+};
+
+const displayLooserGif = () => {
+    const fullscreenLoose = document.querySelector("#fullscreen");
+    fullscreenLoose.classList.add("fullscreen-gif");
+    fullscreenLoose.style.backgroundImage = "url(https://media.tenor.com/7C6H6TQk-D8AAAAC/pokemon-ash.gif)";
+    // image disparaît après 5 secondes
+    setTimeout(function() {
+      fullscreenLoose.style.display = "none";
+  }, 5000);
+};
+
+// Réinitialise le jeu après image 
