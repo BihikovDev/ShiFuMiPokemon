@@ -31,11 +31,8 @@ const playGame = (e) => {
   choix.classList.add("active");
 
   let choixJoueur = choix.id;
-
   let choixOrdi = faireChoixOrdinateur();
-
   verifierGagnant(choixJoueur, choixOrdi);
-
   nextBtn.style.visibility = "visible";
 };
 
@@ -128,7 +125,6 @@ const victoireJoueur = () => {
     usersWin = 0;
     computersWin = 0;
   }
-  
   calculateWinrate();
 };
 
@@ -142,11 +138,9 @@ const newGame = () => {
 
   // Cache le bouton lorsque le choix est effectué et validé
   nextBtn.style.visibility = "hidden";
-
   oBulbizarreBtn.classList.remove("active");
   oCarapuceBtn.classList.remove("active");
   oSalamecheBtn.classList.remove("active");
-
   message.textContent = "A vous de jouer !";
 };
 
@@ -156,7 +150,6 @@ const reset = () => {
   scoreComputer.textContent = 0;
   totalVictoires = 0
   winrate.textContent = "0%";
-
   newGame();
 }
 reset()
