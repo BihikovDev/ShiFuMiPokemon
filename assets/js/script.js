@@ -144,7 +144,7 @@ const newGame = () => {
   oBulbizarreBtn.classList.remove("active");
   oCarapuceBtn.classList.remove("active");
   oSalamecheBtn.classList.remove("active");
-  message.textContent = "A vous de jouer !";
+  message.textContent = "";
 };
 
 // Ajout d'un événement permettant de réinitialiser les stats et recommencer une partie

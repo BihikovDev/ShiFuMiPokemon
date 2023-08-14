@@ -206,9 +206,9 @@ header {
 
 @media (max-width: 480px) {
     :root {
-        --primary: #abaf9d;
-        --secondary: #abaf9d;
-        --action: #c94646;
+        --primary: #252c102c;
+        --secondary: #252c102c;
+        --action: #ff6565;
         --border-radius: 10px;
         --btn-padding: 10px;
     }
@@ -252,6 +252,9 @@ header {
     }
     .logoPokemon {
         width: 300px;
+    }
+    .soundText {
+        font-size: bold;
     }
     .score {
         margin-top: 20px;
@@ -313,7 +316,9 @@ header {
     .jeu {
         border-top: 1px solid black;
         padding-top: 20px;
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
         color: #2F2F2F;
@@ -321,6 +326,7 @@ header {
     }
     .computerChoice {
         margin-left: 26px;
+        margin-top: 30px;
     }
     .userChoice {
         margin-left: 29px;
@@ -390,5 +396,9 @@ header {
       .score p {
         margin: 0;
       }
+
+      #scoreboard {
+        display: none;
+    }
       
   }
