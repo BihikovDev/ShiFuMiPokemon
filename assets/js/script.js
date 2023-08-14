@@ -62,7 +62,7 @@ const salameche = "salameche";
 const verifierGagnant = (choixJoueur, choixOrdi) => {
   if (choixJoueur === choixOrdi) {
     message.innerHTML =
-      "<span style='color:orange; font-size:30px'>Match nul, vos deux pokémons sont hors-jeu.</span>";
+      "<div class='drawMessage mt-2'><span style='color:orange; font-size:30px'>Match nul, vos deux pokémons sont hors-jeu.</span></div>";
     return;
   }
 
@@ -97,7 +97,7 @@ const verifierGagnant = (choixJoueur, choixOrdi) => {
 // En cas de victoire de l'ordinateur, le message.textContent est affiché sous le bouton
 const victoireOrdinateur = () => {
   message.innerHTML =
-    "<div class='winOrLooseMsg'><span style='color:#ff6565; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span> <img src=\"https://s12.gifyu.com/images/SWwGw.gif\" width=\"100%\" height=\"300px\"></div>";
+    "<div class='winOrLooseMsg mt-2'><span style='color:#c94646; font-size:30px' class='mb-3'>Vous avez perdu. Vous êtes hors jeu.</span></div>";
   scoreComputer.textContent++;
   computersWin++;
   // Affiche de l'image LooserGif après 5 manches remportées par l'ordinateur
@@ -116,7 +116,7 @@ const victoireOrdinateur = () => {
 // En cas de victoire de l'utilisateur, le message.textContent est affiché sous le bouton
 const victoireJoueur = () => {
   message.innerHTML =
-    "<div class='winOrLooseMsg'><span style='color:#90EE90; font-size:30px' class='mb-3'>Vous avez gagné. Votre adversaire est hors jeu.</span> <img src=\"https://media.tenor.com/7Nj-xYFfoi8AAAAd/pokemon-pocket-monsters.gif\" width=\"100%\" height=\"300px\"></div>";
+    "<div class='winOrLooseMsg mt-2'><span style='color:#90EE90; font-size:30px' class='mb-3'>Vous avez gagné. Votre adversaire est hors jeu.</span> </div>";
   scorePlayer.textContent++;
   usersWin++;
   // Affichage de l'image fullscreen après 5 manches remportées

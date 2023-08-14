@@ -4,8 +4,8 @@
 
 
 :root {
-    --primary: #868f69;
-    --secondary: #abaf9d;
+    --primary: #252c102c;
+    --secondary: #252c102c;
     --action: #ff6565;
     --border-radius: 10px;
     --btn-padding: 10px;
@@ -60,11 +60,10 @@ header {
     margin-bottom: 5px;
     text-align: center;
     font-size: 20px;
-    background-color: #727580;
-    color: #BDC4A7;
+    color: #2F2F2F;
     padding: var(--btn-padding);
     border-radius: 10px;
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Prompt', sans-serif;
 }
 .score img {
     width: 50px;
@@ -150,7 +149,7 @@ header {
 }
 
 .btn-joueur:hover {
-    color: var(--primary);
+    color: rgb(189, 126, 126);
 }
 
 .button img {
@@ -198,6 +197,10 @@ header {
     display: block;
 }
 
+#scoreboard {
+    width: 10%;
+}
+
 
 /* MEDIA QUERIES */
 
@@ -205,7 +208,7 @@ header {
     :root {
         --primary: #abaf9d;
         --secondary: #abaf9d;
-        --action: #ff6565;
+        --action: #c94646;
         --border-radius: 10px;
         --btn-padding: 10px;
     }
